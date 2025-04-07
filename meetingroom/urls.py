@@ -23,6 +23,7 @@ urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')), # 注册 http://127.0.0.1:8000/accounts/register/
+    path('i18n/', include('django.conf.urls.i18n')), # 多语言设置 http://127.0.0.1:8000/i18n/
 ]
 
 admin.site.site_header = _('Django科技招聘管理系统')

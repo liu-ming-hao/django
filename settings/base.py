@@ -108,6 +108,7 @@ MIDDLEWARE = [
     'interview.performance.performance_logger_middleware',#引入自定义日志中间件
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware', #多语言支持中间件
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -169,14 +170,31 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'zh-hans'
+#LANGUAGE_CODE = 'zh-hans'
+#LANGUAGE_CODE = 'en-us'
 #修改为中国时间TIME_ZONE
-TIME_ZONE = 'Asia/Shanghai'
+#TIME_ZONE = 'Asia/Shanghai'
 #TIME_ZONE = 'UTC'
+from django.utils.translation import gettext_lazy as _ # 多语言支持包
+
+LANGUAGES = [
+    ('zh-hans', _('Chinese')),
+    ('en', _('English')),
+]
+
+LANGUAGE_CODE = 'zh-hans'
+
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 
 # Static files (CSS, JavaScript, Images)

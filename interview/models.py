@@ -27,6 +27,7 @@ class Candidate(models.Model):
     # unique: 该字段是否唯一。
     # null: 该字段是否可以为空。
     # blank: 该字段是否可以为空。
+    # verbose_name: 该字段的显示名称。
     userid = models.IntegerField(unique=True, blank=True, null=True, verbose_name=u'应聘者ID')
     username = models.CharField(max_length=135, verbose_name=u'姓名')
     city = models.CharField(max_length=135, verbose_name=u'城市')
