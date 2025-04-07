@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if job %}
+        <div class="position_name" z>
+        <h2>岗位名称：{{job.job_name}} </h2>
+
+        城市：
+        {{job.job_location}} <p></p>
+    </div>
+    <hr>
+    <div class="position_responsibility" style="width:600px;">
+        <h3>岗位职责：</h3>
+        <pre style="font-size:16px">{{job.job_responsibility}}
+        </pre>
+    </div>
+
+    <hr>
+    <div class="position_requirement" style="width:600px; ">
+        <h3>任职要求：</h3>
+        <pre style="font-size:16px">{{job.job_requirements}}
+        </pre>
+    </div>
+
+    <div class="apply_position">
+        <input type="button" class="btn btn-primary" style="width:120px;" value="申请" onclick="location.href='/resume/add/?apply_position={{job.job_name}}&city={{job.job_location}}'"/>
+    </div>
+{% else %}
+    <h1>该职位不存在</h1>
+{% endif %}
+{% endblock %}

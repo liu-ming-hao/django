@@ -1,0 +1,38 @@
+
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<h1 style="text-align: center;">django科技开放职位信息</h1>
+
+<p>欢迎来到django科技开放职位信息，这里汇集了django相关的职位信息，欢迎大家投递简历，共同推动django技术的发展。</p>
+
+{% block header %}
+<a href="/" style="text-decoration: none; color:#007bff">首页</a>
+<a href="/joblist" style="text-decoration: none; color:#007bff">职位列表</a>
+
+{% if user.is_authenticated %}
+<form action="/accounts/logout/" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" style="background: none; border: none; color: #007bff; cursor: pointer; padding: 0;">退出</button>
+</form>
+{% else %}
+<a href="/accounts/login" style="text-decoration: none; color:#007bff">登录</a>
+{% endif %}
+
+{% if user.is_authenticated %}
+<p> 终于等到你 {{ user.username }}, 期待加入我们，用技术去探索一个新世界 </p>
+{% else %}
+<br>欢迎你，期待加入我们，登陆后可以提交简历.<br>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+{% endblock %}
