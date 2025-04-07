@@ -88,6 +88,10 @@ python manage.py runserver
 4. 推送到分支
 5. 创建 Pull Request
 
+## 版本
+git config --global --add safe.directory 
+
+
 ## 许可证
 
 [许可证类型] 
