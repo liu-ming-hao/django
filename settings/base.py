@@ -14,6 +14,9 @@ from pathlib import Path
 
 
 
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,6 +27,12 @@ LOG_DIR = BASE_DIR / "logs"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-uv7*q+7-vf^wtr(mdt@&6jz3)sucjt=_nya06^*%=tl1*&ra=o'
+
+# 文件上传配置
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
